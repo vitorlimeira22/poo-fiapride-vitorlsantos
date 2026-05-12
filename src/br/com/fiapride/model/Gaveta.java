@@ -1,14 +1,46 @@
 package br.com.fiapride.model;
 
 public class Gaveta {
-    public String nome;
-    public String identificador;
-    public double capacidade;
+    private String nome;
+    private String identificador;
+    private double capacidade;
 
     public Gaveta(String nome, String identificador) {
+        this.setNome(nome);
+        this.setIdentificador(identificador);
+        this.setCapacidade(0); // Toda gaveta começa com zero!
+    }
+
+    // Método para PEGAR a capacidade (Leitura)
+    public double getCapacidade() {
+        return this.capacidade; // Apenas devolve o valor, não altera nada.
+    }
+
+    // Método para DEFINIR a capacidade (Escrita com Regra de Negócio!)
+    private void setCapacidade(double valor) {
+        if (valor >= 0) {
+            this.capacidade = valor;
+        } else {
+            System.out.println("Erro de Segurança: Tentativa de definir capacidade negativa bloqueada!");
+        }
+    }
+
+    // Faça o mesmo para o nome (sem regras complexas por enquanto)
+    public String getNome() {
+        return this.nome;
+    }
+
+    private void setNome(String nome) {
         this.nome = nome;
+    }
+
+    // Faça o mesmo para o identificador (sem regras complexas por enquanto)
+    public String getIdentificador() {
+        return this.identificador;
+    }
+
+    private void setIdentificador(String identificador) {
         this.identificador = identificador;
-        this.capacidade = 0.00;
     }
 
     public void adicionarCapacidade(double valor) {
