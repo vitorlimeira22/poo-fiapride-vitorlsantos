@@ -51,6 +51,7 @@ public class Gaveta {
     }
 
     public void adicionarCapacidade(double valor) {
+
         if (valor <= 0) {
             System.out.println("Erro: O valor da capacidade deve ser maior que zero.");
             return;
@@ -74,5 +75,10 @@ public class Gaveta {
 
         this.capacidade -= espaco;
         System.out.println("Item armazenado. Capacidade restante: " + this.capacidade);
+    }
+
+    // MÉTODO GENÉRICO PARA POLIMORFISMO
+    public String organizarItens() {
+        return "A gaveta está organizando itens de forma genérica.";
     }
 }

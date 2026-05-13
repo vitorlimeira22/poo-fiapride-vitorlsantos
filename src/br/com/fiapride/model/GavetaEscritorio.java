@@ -4,7 +4,9 @@ public class GavetaEscritorio extends Gaveta {
 
     private int quantidadeCanetas;
 
-    public GavetaEscritorio(String nome, String identificador, Armario armario, int quantidadeCanetas) {
+    public GavetaEscritorio(String nome, String identificador,
+                            Armario armario, int quantidadeCanetas) {
+
         super(nome, identificador, armario);
         this.setQuantidadeCanetas(quantidadeCanetas);
     }
@@ -15,5 +17,11 @@ public class GavetaEscritorio extends Gaveta {
 
     private void setQuantidadeCanetas(int quantidadeCanetas) {
         this.quantidadeCanetas = quantidadeCanetas;
+    }
+
+    @Override
+    public String organizarItens() {
+        return "A gaveta de escritório organizou "
+                + this.quantidadeCanetas + " canetas.";
     }
 }

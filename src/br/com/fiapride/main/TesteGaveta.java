@@ -1,8 +1,12 @@
 package br.com.fiapride.main;
 
 import br.com.fiapride.model.Armario;
+import br.com.fiapride.model.Gaveta;
 import br.com.fiapride.model.GavetaCozinha;
 import br.com.fiapride.model.GavetaEscritorio;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TesteGaveta {
 
@@ -12,20 +16,27 @@ public class TesteGaveta {
         Armario armario2 = new Armario("Armário Cozinha", "Aço");
 
         GavetaEscritorio gavetaEscritorio =
-                new GavetaEscritorio("Gaveta Office", "GE001", armario1, 15);
+                new GavetaEscritorio("Gaveta Office",
+                        "GE001",
+                        armario1,
+                        15);
 
         GavetaCozinha gavetaCozinha =
-                new GavetaCozinha("Gaveta Talheres", "GC001", armario2, 30);
+                new GavetaCozinha("Gaveta Talheres",
+                        "GC001",
+                        armario2,
+                        30);
 
-        System.out.println("--- Gaveta Escritório ---");
-        System.out.println("Nome: " + gavetaEscritorio.getNome());
-        System.out.println("Armário: " + gavetaEscritorio.getArmario().getNome());
-        System.out.println("Quantidade de canetas: " + gavetaEscritorio.getQuantidadeCanetas());
+        // POLIMORFISMO
+        List<Gaveta> gavetas = new ArrayList<>();
 
-        System.out.println("\n--- Gaveta Cozinha ---");
-        System.out.println("Nome: " + gavetaCozinha.getNome());
-        System.out.println("Armário: " + gavetaCozinha.getArmario().getNome());
-        System.out.println("Quantidade de talheres: " + gavetaCozinha.getQuantidadeTalheres());
+        gavetas.add(gavetaEscritorio);
+        gavetas.add(gavetaCozinha);
 
+        System.out.println("--- Teste de Polimorfismo ---");
+
+        for (Gaveta gaveta : gavetas) {
+            System.out.println(gaveta.organizarItens());
+        }
     }
 }
