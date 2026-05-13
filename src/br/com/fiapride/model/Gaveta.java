@@ -1,6 +1,6 @@
 package br.com.fiapride.model;
 
-public class Gaveta {
+public abstract class Gaveta {
 
     private String nome;
     private String identificador;
@@ -77,8 +77,6 @@ public class Gaveta {
         System.out.println("Item armazenado. Capacidade restante: " + this.capacidade);
     }
 
-    // MÉTODO GENÉRICO PARA POLIMORFISMO
-    public String organizarItens() {
-        return "A gaveta está organizando itens de forma genérica.";
-    }
+    // MÉTODO ABSTRATO
+    public abstract String tipoDeOrganizacao();
 }
