@@ -1,6 +1,6 @@
 package br.com.fiapride.model;
 
-public class GavetaEscritorio extends Gaveta {
+public class GavetaEscritorio extends Gaveta implements Organizavel {
 
     private int quantidadeCanetas;
 
@@ -24,5 +24,15 @@ public class GavetaEscritorio extends Gaveta {
     @Override
     public String tipoDeOrganizacao() {
         return "Organização de materiais de escritório.";
+    }
+
+    @Override
+    public void organizar() {
+        System.out.println("A gaveta de escritório organizou as canetas.");
+    }
+
+    @Override
+    public String verificarStatus() {
+        return "Gaveta de escritório organizada.";
     }
 }

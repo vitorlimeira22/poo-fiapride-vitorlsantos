@@ -1,9 +1,10 @@
 package br.com.fiapride.main;
 
 import br.com.fiapride.model.Armario;
-import br.com.fiapride.model.Gaveta;
+import br.com.fiapride.model.Caixa;
 import br.com.fiapride.model.GavetaCozinha;
 import br.com.fiapride.model.GavetaEscritorio;
+import br.com.fiapride.model.Organizavel;
 
 public class TesteGaveta {
 
@@ -11,10 +12,6 @@ public class TesteGaveta {
 
         Armario armario1 = new Armario("Armário Escritório", "Madeira");
         Armario armario2 = new Armario("Armário Cozinha", "Aço");
-
-        // TESTE DA CLASSE ABSTRATA
-        // Gaveta gaveta = new Gaveta("Teste", "G000", armario1);
-        // O Java exibirá erro porque classes abstratas não podem ser instanciadas.
 
         GavetaEscritorio gavetaEscritorio =
                 new GavetaEscritorio(
@@ -32,15 +29,24 @@ public class TesteGaveta {
                         30
                 );
 
-        System.out.println("--- Teste Classe Abstrata ---");
+        Caixa caixa = new Caixa("Documentos");
 
-        System.out.println(gavetaEscritorio.getNome()
-                + " -> "
-                + gavetaEscritorio.tipoDeOrganizacao());
+        // POLIMORFISMO COM INTERFACE
+        Organizavel[] organizaveis = {
+                gavetaEscritorio,
+                gavetaCozinha,
+                caixa
+        };
 
-        System.out.println(gavetaCozinha.getNome()
-                + " -> "
-                + gavetaCozinha.tipoDeOrganizacao());
+        System.out.println("--- Teste Interface Organizavel ---");
 
+        for (Organizavel item : organizaveis) {
+
+            item.organizar();
+
+            System.out.println(item.verificarStatus());
+
+            System.out.println("-------------------");
+        }
     }
 }

@@ -34,4 +34,6 @@ public abstract class Veiculo {
             this.placa = placa;
         }
     }
+
+    public abstract String calcularAutonomia();
 }
